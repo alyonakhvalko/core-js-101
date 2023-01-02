@@ -429,7 +429,13 @@ function toStringList(arr) {
  *    ]
  */
 function sortCitiesArray(arr) {
-  arr.sort((a, b) => a.city > b.city ? 1 : -1);
+  arr.sort((objA, objB) => {
+    if (objA.country > objB.country) return 1;
+    if (objA.country < objB.country) return -1;
+
+    return objA.city > objB.city ? 1 : -1;
+  });
+  return arr;
 }
 
 /**
